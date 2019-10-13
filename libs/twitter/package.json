@@ -1,20 +1,14 @@
 {
   "name": "@aspida/twitter",
   "version": "0.0.0",
-  "description": "Twitter API for aspida",
+  "description": "twitter API for aspida",
+  "author": "m-mitsuhide <genbu2011@live.jp>",
   "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/aspidajs/apihub.git"
   },
-  "author": "m-mitsuhide <m.mitsuhide@amatelus.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/aspidajs/apihub/issues"
-  },
   "homepage": "https://github.com/aspidajs/apihub/libs/twitter#readme",
   "aspida": {
     "baseURL": "https://api.twitter.com/1.1"

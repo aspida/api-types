@@ -2,16 +2,30 @@ import fs from 'fs'
 import path from 'path'
 import rimraf from 'rimraf'
 import { execSync } from 'child_process'
+import prompts from 'prompts'
 import buildApi from 'aspida/dist/buildRouteFile'
 import writeApi from 'aspida/dist/writeRouteFile'
 import buildMock from 'axios-mock-server/dist/lib/buildRouteFile'
 import writeMock from 'axios-mock-server/dist/lib/writeRouteFile'
 
-const targetName = process.argv[2]
+;(async () => {
+  let targetName = process.argv[2]
 
-if (!targetName) {
-  console.log('call with API name like "$ npm run build twitter".')
-} else {
+  if (!targetName) {
+    console.log('You can also enter "$ npm run build <API_NAME>".')
+
+    targetName = (await prompts({
+      name: 'name',
+      type: 'text' as const,
+      message: 'API name',
+      validate: (name: string) =>
+        fs.existsSync(`./libs/${name}`) || `"${name}" does not exist in "lib/*".`
+    })).name
+  } else if (!fs.existsSync(`./libs/${targetName}`)) {
+    console.log(`"${targetName}" does not exist in "lib/*".`)
+    return
+  }
+
   const targetPJ = `libs/${targetName}`
 
   rimraf(`${targetPJ}/dist`, () => {
@@ -39,4 +53,4 @@ if (!targetName) {
       console.log(e.stdout)
     }
   })
-}
+})()
