@@ -1,0 +1,19 @@
+{
+  "name": "@aspida/project_name",
+  "version": "<% version %>",
+  "description": "<% name %> API for aspida",
+  "author": "<% author %>",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aspidajs/apihub.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/aspidajs/apihub/libs/<% name %>#readme",
+  "aspida": {
+    "baseURL": "<% baseURL %>"
+  },
+  "dependencies": {
+    "axios-mock-server": "<% mock-version %>"
+  }
+}

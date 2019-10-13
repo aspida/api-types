@@ -1,0 +1,5 @@
+node_modules
+libs/*/dist
+libs/**/$*.ts
+libs/*/index.ts
+libs/*/tsconfig.json
