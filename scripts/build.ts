@@ -7,7 +7,6 @@ import buildApi from 'aspida/dist/buildRouteFile'
 import writeApi from 'aspida/dist/writeRouteFile'
 import buildMock from 'axios-mock-server/dist/lib/buildRouteFile'
 import writeMock from 'axios-mock-server/dist/lib/writeRouteFile'
-
 ;(async () => {
   let targetName = process.argv[2]
 
@@ -30,23 +29,26 @@ import writeMock from 'axios-mock-server/dist/lib/writeRouteFile'
 
   rimraf(`${targetPJ}/dist`, () => {
     const input = `${targetPJ}/apis`
-    const info: { [key: string]: any } = JSON.parse(fs.readFileSync(`${targetPJ}/package.json`, 'utf8'))
+    const info: { [key: string]: any } = JSON.parse(
+      fs.readFileSync(`${targetPJ}/package.json`, 'utf8')
+    )
     const { baseURL } = info.aspida
 
     writeApi(buildApi(input, baseURL))
     writeMock(buildMock(input, { input }))
-    
+
     const SEPARATOR = process.platform === 'win32' ? ';' : ':'
     const env = {
       ...process.env,
-      PATH: `${path.resolve("./node_modules/.bin")}${SEPARATOR}${process.env.PATH}`
+      PATH: `${path.resolve('./node_modules/.bin')}${SEPARATOR}${process.env.PATH}`
     }
 
     try {
-      execSync(
-        `tsc --project ./${targetPJ}/tsconfig.json`,
-        { cwd: process.cwd(), env, encoding: 'utf8' }
-      )
+      execSync(`tsc --project ./${targetPJ}/tsconfig.json`, {
+        cwd: process.cwd(),
+        env,
+        encoding: 'utf8'
+      })
 
       console.log(`${targetPJ}/dist was built successfully.`)
     } catch (e) {

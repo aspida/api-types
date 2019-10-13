@@ -1,9 +1,6 @@
 import { MockMethods } from 'axios-mock-server'
 
-export const users = [
-  { id: 0, name: 'aaaa' },
-  { id: 1, name: 'bbbb' }
-]
+export const users = [{ id: 0, name: 'aaaa' }, { id: 1, name: 'bbbb' }]
 
 export type User = typeof users[0]
 
