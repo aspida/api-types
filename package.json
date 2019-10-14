@@ -9,6 +9,7 @@
     "lint:fix": "npm run lint -- --fix",
     "test:types": "aspida --build && axios-mock-server --build && tsc --noEmit && rimraf templates/**/$*.ts"
   },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/aspidajs/apihub.git"

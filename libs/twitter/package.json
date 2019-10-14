@@ -11,8 +11,11 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
-  "homepage": "https://github.com/aspidajs/apihub/libs/twitter#readme",
+  "homepage": "https://github.com/aspidajs/apihub/tree/master/libs/twitter#readme",
   "aspida": {
     "baseURL": "https://api.twitter.com/"
   },
