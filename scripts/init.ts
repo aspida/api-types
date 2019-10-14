@@ -35,7 +35,7 @@ const questions = [
     name: 'baseURL',
     type: 'text' as const,
     message: 'API baseURL',
-    initial: 'https://example.com/v1'
+    initial: 'https://example.com'
   }
 ]
 ;(async () => {
@@ -65,4 +65,10 @@ const questions = [
     .replace(/<% name %>/g, answers.name)
 
   fs.writeFileSync(`${targetPJ}/README.md`, readme, 'utf8')
+
+  const license = fs
+    .readFileSync('./templates/LICENSE', 'utf8')
+    .replace('<% author %>', answers.author)
+
+  fs.writeFileSync(`${targetPJ}/LICENSE`, license, 'utf8')
 })()
