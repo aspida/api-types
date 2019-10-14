@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    ".aspidarc": "json",
+    ".mockserverrc": "json"
+  }
+}

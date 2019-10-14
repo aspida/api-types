@@ -8,10 +8,13 @@
     "type": "git",
     "url": "git+ssh://git@github.com/aspidajs/apihub.git"
   },
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/aspidajs/apihub/libs/twitter#readme",
   "aspida": {
-    "baseURL": "https://api.twitter.com/1.1"
+    "baseURL": "https://api.twitter.com/"
   },
   "dependencies": {
     "axios-mock-server": "^0.14.0"

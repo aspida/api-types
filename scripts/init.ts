@@ -32,16 +32,6 @@ const questions = [
     initial: authorName
   },
   {
-    name: 'version',
-    type: 'text' as const,
-    message: 'API first release version',
-    initial: '0.0.0',
-    validate: (ver: string) =>
-      /^[0-9]+\.[0-9]+\.[0-9]+$/.test(ver)
-        ? true
-        : 'String does not match the pattern of "^[0-9]+.[0-9]+.[0-9]+$".'
-  },
-  {
     name: 'baseURL',
     type: 'text' as const,
     message: 'API baseURL',
@@ -61,7 +51,6 @@ const questions = [
   const packageJson = fs
     .readFileSync('./templates/package.json', 'utf8')
     .replace(/(project_name|<% name %>)/g, answers.name)
-    .replace('<% version %>', answers.version)
     .replace('<% author %>', answers.author)
     .replace('<% baseURL %>', answers.baseURL)
     .replace(
