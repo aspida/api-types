@@ -8,9 +8,9 @@ import buildMock from 'axios-mock-server/dist/lib/buildRouteFile'
 import writeMock from 'axios-mock-server/dist/lib/writeRouteFile'
 
 const gitConfigPath = `${os.homedir()}/.gitconfig`
-const { user = {}} = fs.existsSync(gitConfigPath)
+const { user = {} } = fs.existsSync(gitConfigPath)
   ? ini.parse(fs.readFileSync(gitConfigPath, 'utf8'))
-  : { user: { name: '', email: '' }}
+  : { user: { name: '', email: '' } }
 const authorName = `${user.name || ''}${user.email ? ` <${user.email}>` : ''}`
 
 const questions = [
@@ -32,20 +32,12 @@ const questions = [
     initial: authorName
   },
   {
-    name: 'version',
-    type: 'text' as const,
-    message: 'API first release version',
-    initial: '0.0.0',
-    validate: (ver: string) => /^[0-9]+\.[0-9]+\.[0-9]+$/.test(ver) ? true : 'String does not match the pattern of "^[0-9]+\.[0-9]+\.[0-9]+$".'
-  },
-  {
     name: 'baseURL',
     type: 'text' as const,
     message: 'API baseURL',
     initial: 'https://example.com/v1'
   }
 ]
-
 ;(async () => {
   const answers = await prompts(questions)
   const targetPJ = `./libs/${answers.name}`
@@ -56,16 +48,20 @@ const questions = [
   writeApi(buildApi(input, answers.baseURL))
   writeMock(buildMock(input, { input }))
 
-  const packageJson = fs.readFileSync('./templates/package.json', 'utf8')
+  const packageJson = fs
+    .readFileSync('./templates/package.json', 'utf8')
     .replace(/(project_name|<% name %>)/g, answers.name)
-    .replace('<% version %>', answers.version)
     .replace('<% author %>', answers.author)
     .replace('<% baseURL %>', answers.baseURL)
-    .replace('<% mock-version %>', JSON.parse(fs.readFileSync('./package.json', 'utf8')).devDependencies['axios-mock-server'])
+    .replace(
+      '<% mock-version %>',
+      JSON.parse(fs.readFileSync('./package.json', 'utf8')).devDependencies['axios-mock-server']
+    )
 
   fs.writeFileSync(`${targetPJ}/package.json`, packageJson, 'utf8')
 
-  const readme = fs.readFileSync('./templates/README.md', 'utf8')
+  const readme = fs
+    .readFileSync('./templates/README.md', 'utf8')
     .replace(/<% name %>/g, answers.name)
 
   fs.writeFileSync(`${targetPJ}/README.md`, readme, 'utf8')

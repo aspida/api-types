@@ -1,6 +1,6 @@
 {
   "name": "@aspida/project_name",
-  "version": "<% version %>",
+  "version": "0.0.0",
   "description": "<% name %> API for aspida",
   "author": "<% author %>",
   "main": "dist/index.js",
