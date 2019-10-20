@@ -1,6 +1,6 @@
 {
   "name": "@aspida/resas",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "resas API for aspida",
   "author": "m-mitsuhide <genbu2011@live.jp>",
   "main": "dist/index.js",
