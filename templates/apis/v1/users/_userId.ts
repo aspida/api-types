@@ -1,5 +1,6 @@
 import { MockMethods } from 'axios-mock-server'
-import { User, users } from './index'
+import { User } from '~/@types'
+import { users } from './index'
 
 export interface Methods {
   get: {

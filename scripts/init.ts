@@ -2,10 +2,11 @@ import os from 'os'
 import fs from 'fs-extra'
 import ini from 'ini'
 import prompts from 'prompts'
-import buildApi from 'aspida/dist/buildRouteFile'
+import buildApi from 'aspida/dist/buildTemplate'
 import writeApi from 'aspida/dist/writeRouteFile'
 import buildMock from 'axios-mock-server/dist/lib/buildRouteFile'
 import writeMock from 'axios-mock-server/dist/lib/writeRouteFile'
+import writeIndexFile from './writeIndexFile'
 
 const gitConfigPath = `${os.homedir()}/.gitconfig`
 const { user = {} } = fs.existsSync(gitConfigPath)
@@ -35,7 +36,7 @@ const questions = [
     name: 'baseURL',
     type: 'text' as const,
     message: 'API baseURL',
-    initial: 'https://example.com/v1'
+    initial: 'https://example.com'
   }
 ]
 ;(async () => {
@@ -47,6 +48,7 @@ const questions = [
 
   writeApi(buildApi(input, answers.baseURL))
   writeMock(buildMock(input, { input }))
+  writeIndexFile(targetPJ)
 
   const packageJson = fs
     .readFileSync('./templates/package.json', 'utf8')
@@ -65,4 +67,10 @@ const questions = [
     .replace(/<% name %>/g, answers.name)
 
   fs.writeFileSync(`${targetPJ}/README.md`, readme, 'utf8')
+
+  const license = fs
+    .readFileSync('./templates/LICENSE', 'utf8')
+    .replace('<% author %>', answers.author)
+
+  fs.writeFileSync(`${targetPJ}/LICENSE`, license, 'utf8')
 })()

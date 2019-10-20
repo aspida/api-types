@@ -7,8 +7,9 @@
     "build": "ts-node scripts/build",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
-    "test:types": "aspida --build && axios-mock-server --build && tsc --noEmit && rimraf templates/**/$*.ts"
+    "test:types": "aspida --build && axios-mock-server --build && tsc --noEmit"
   },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/aspidajs/apihub.git"
@@ -29,9 +30,9 @@
     "@types/rimraf": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
-    "aspida": "^0.4.0",
+    "aspida": "^0.6.0",
     "axios": "^0.19.0",
-    "axios-mock-server": "^0.14.0",
+    "axios-mock-server": "^0.15.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-config-standard": "^14.1.0",

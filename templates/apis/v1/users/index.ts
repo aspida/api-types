@@ -1,8 +1,7 @@
 import { MockMethods } from 'axios-mock-server'
+import { User } from '~/@types'
 
-export const users = [{ id: 0, name: 'aaaa' }, { id: 1, name: 'bbbb' }]
-
-export type User = typeof users[0]
+export const users: User[] = [{ id: 0, name: 'aaaa' }, { id: 1, name: 'bbbb' }]
 
 export interface Methods {
   get: {

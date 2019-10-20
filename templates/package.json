@@ -8,8 +8,14 @@
     "type": "git",
     "url": "git+ssh://git@github.com/aspidajs/apihub.git"
   },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
-  "homepage": "https://github.com/aspidajs/apihub/libs/<% name %>#readme",
+  "homepage": "https://github.com/aspidajs/apihub/tree/master/libs/<% name %>#readme",
   "aspida": {
     "baseURL": "<% baseURL %>"
   },
