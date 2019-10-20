@@ -7,9 +7,6 @@
     "module": "es2015",
     "moduleResolution": "node",
     "outDir": "dist",
-    "paths": {
-      "~/*": ["../*"]
-    },
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,

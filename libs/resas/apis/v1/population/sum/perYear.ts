@@ -1,5 +1,5 @@
 import { MockMethods } from 'axios-mock-server'
-import { PrefCode, Headers, Response } from '~/resas/apis/@types'
+import { PrefCode, Headers, Response } from '../../../@types'
 
 export interface Methods {
   get: {

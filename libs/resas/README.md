@@ -14,7 +14,7 @@ $ npm install axios @aspida/resas
 
 ```javascript
 import axios from "axios"
-import api, { mock, Types } from "@aspida/resas"
+import api, { mock, ApiTypes } from "@aspida/resas"
 
 if (process.env.NODE_ENV === "production") {
   // Get API key here: https://opendata.resas-portal.go.jp/form.html
@@ -24,8 +24,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 ;(async () => {
-  const prefCode = Types.PrefCode.Hokkaido
-  const cities = api().v1.cities.$get({ params: { prefCode } })
+  const prefCode = ApiTypes.PrefCode.Hokkaido
+  const cities = await api().v1.cities.$get({ params: { prefCode } })
   const { cityCode } = cities.result.filter(city => city.cityName === "札幌市")[0]
 
   const population = await api().v1.population.composition.perYear.$get({
