@@ -3,10 +3,11 @@ import path from 'path'
 import rimraf from 'rimraf'
 import { execSync } from 'child_process'
 import prompts from 'prompts'
-import buildApi from 'aspida/dist/buildRouteFile'
+import buildApi from 'aspida/dist/buildTemplate'
 import writeApi from 'aspida/dist/writeRouteFile'
 import buildMock from 'axios-mock-server/dist/lib/buildRouteFile'
 import writeMock from 'axios-mock-server/dist/lib/writeRouteFile'
+import writeIndexFile from './writeIndexFile'
 ;(async () => {
   let targetName = process.argv[2]
 
@@ -26,6 +27,8 @@ import writeMock from 'axios-mock-server/dist/lib/writeRouteFile'
   }
 
   const targetPJ = `libs/${targetName}`
+
+  writeIndexFile(targetPJ)
 
   rimraf(`${targetPJ}/dist`, () => {
     const input = `${targetPJ}/apis`
