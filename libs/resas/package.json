@@ -1,0 +1,25 @@
+{
+  "name": "@aspida/resas",
+  "version": "0.0.0",
+  "description": "resas API for aspida",
+  "author": "m-mitsuhide <genbu2011@live.jp>",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aspidajs/apihub.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/aspidajs/apihub/tree/master/libs/resas#readme",
+  "aspida": {
+    "baseURL": "https://opendata.resas-portal.go.jp/api"
+  },
+  "dependencies": {
+    "axios-mock-server": "^0.15.0"
+  }
+}
