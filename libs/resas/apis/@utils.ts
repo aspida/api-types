@@ -1,4 +1,4 @@
-import { PrefCode } from '~/@types'
+import { PrefCode } from '~/resas/apis/@types'
 
 export const createAddArea = (areas: { prefCode: PrefCode; cityCode: string }[]) =>
   areas

@@ -7,7 +7,7 @@
     "build": "ts-node scripts/build",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
-    "test:types": "aspida --build && axios-mock-server --build && tsc --noEmit && rimraf templates/**/$*.ts"
+    "test:types": "aspida --build && axios-mock-server --build && tsc --noEmit"
   },
   "private": true,
   "repository": {

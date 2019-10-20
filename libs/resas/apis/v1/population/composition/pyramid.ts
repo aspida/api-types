@@ -1,5 +1,5 @@
 import { MockMethods } from 'axios-mock-server'
-import { PrefCode, Headers, Response } from '~/@types'
+import { PrefCode, Headers, Response } from '~/resas/apis/@types'
 
 type Year = 1980 | 1985 | 1990 | 1995 | 2000 | 2005 | 2010 | 2015 | 2020 | 2025 | 2030 | 2035 | 2040
 type AgeData<T> = {
