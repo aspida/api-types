@@ -1,5 +1,5 @@
 import { MockMethods } from 'axios-mock-server'
-import { PrefCode, Headers, Response } from '~/resas/apis/@types'
+import { PrefCode, Headers, Response } from '../../../@types'
 
 type PopulationData<T extends '総人口' | '転入数' | '転出数' | '出生数' | '死亡数'> = {
   label: T
