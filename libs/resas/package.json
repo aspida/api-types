@@ -1,6 +1,6 @@
 {
   "name": "@aspida/resas",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "resas API for aspida",
   "author": "m-mitsuhide <genbu2011@live.jp>",
   "main": "dist/index.js",
@@ -20,6 +20,6 @@
     "baseURL": "https://opendata.resas-portal.go.jp/api"
   },
   "dependencies": {
-    "axios-mock-server": "^0.15.0"
+    "axios-mock-server": "^0.16.0"
   }
 }
