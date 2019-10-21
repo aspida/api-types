@@ -47,7 +47,7 @@ const questions = [
   const input = `${targetPJ}/apis`
 
   writeApi(buildApi(input, answers.baseURL))
-  writeMock(buildMock(input, { input }))
+  writeMock(buildMock(input, { input }, answers.baseURL))
   writeIndexFile(targetPJ)
 
   const packageJson = fs

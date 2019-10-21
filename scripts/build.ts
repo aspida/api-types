@@ -38,7 +38,7 @@ import writeIndexFile from './writeIndexFile'
     const { baseURL } = info.aspida
 
     writeApi(buildApi(input, baseURL))
-    writeMock(buildMock(input, { input }))
+    writeMock(buildMock(input, { input }, baseURL))
 
     const SEPARATOR = process.platform === 'win32' ? ';' : ':'
     const env = {
