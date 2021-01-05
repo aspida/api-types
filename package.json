@@ -31,7 +31,7 @@
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
     "aspida": "^0.6.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "axios-mock-server": "^0.16.1",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
