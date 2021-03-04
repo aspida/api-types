@@ -1,5 +1,5 @@
 node_modules
-libs/*/dist
-libs/*/index.ts
-libs/*/tsconfig.json
+packages/**/*.d.ts
+packages/**/*.js
+!aspida.config.js
 $*.ts

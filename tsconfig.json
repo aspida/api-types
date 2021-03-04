@@ -2,14 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "declaration": true,
-    "declarationMap": true,
     "esModuleInterop": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "sourceMap": true,
     "strict": true,
     "target": "es5"
   },
-  "exclude": ["node_modules", "templates", "libs/*/dist"]
+  "exclude": ["node_modules"]
 }

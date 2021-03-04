@@ -1,0 +1,26 @@
+{
+  "name": "@api-types/jma-himawari",
+  "version": "0.0.0",
+  "description": "気象庁防災気象情報API",
+  "license": "MIT",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "homepage": "http://www.jma.go.jp/bosai/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aspida/api-types.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aspida/api-types/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "typescript",
+    "aspida",
+    "api-types",
+    "jma",
+    "himawari"
+  ]
+}
