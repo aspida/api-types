@@ -1,5 +1,3 @@
 node_modules
-packages/**/*.d.ts
-packages/**/*.js
-!aspida.config.js
+dist
 $*.ts

@@ -14,13 +14,15 @@ import writeIndexFile from './writeIndexFile'
   if (!targetName) {
     console.log('You can also enter "$ npm run build <API_NAME>".')
 
-    targetName = (await prompts({
-      name: 'name',
-      type: 'text' as const,
-      message: 'API name',
-      validate: (name: string) =>
-        fs.existsSync(`./libs/${name}`) || `"${name}" does not exist in "lib/*".`
-    })).name
+    targetName = (
+      await prompts({
+        name: 'name',
+        type: 'text' as const,
+        message: 'API name',
+        validate: (name: string) =>
+          fs.existsSync(`./libs/${name}`) || `"${name}" does not exist in "lib/*".`
+      })
+    ).name
   } else if (!fs.existsSync(`./libs/${targetName}`)) {
     console.log(`"${targetName}" does not exist in "lib/*".`)
     return

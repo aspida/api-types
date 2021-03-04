@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "init": "ts-node scripts/init",
-    "build": "tsc -p packages/jma-himawari",
+    "build": "cd packages/jma-himawari && aspida && tsc",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
     "test:types": "aspida --build && axios-mock-server --build && tsc --noEmit"
@@ -19,8 +19,6 @@
     "extends": [
       "standard",
       "plugin:@typescript-eslint/recommended",
-      "plugin:react/recommended",
-      "plugin:jest/recommended",
       "plugin:prettier/recommended",
       "prettier"
     ],
@@ -62,6 +60,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
+    "aspida": "^1.6.1",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
