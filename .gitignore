@@ -1,3 +1,7 @@
 node_modules
 dist
 $*.ts
+packages/*/package.json
+packages/*/tsconfig.json
+packages/*/README.md
+packages/*/LICENSE
