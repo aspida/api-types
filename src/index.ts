@@ -2,11 +2,12 @@ import fs from 'fs'
 import path from 'path'
 import fm from 'front-matter'
 import build from 'aspida/dist/buildTemplate'
+import { createApiDocs } from './createApiDocs'
 
 const dirName = path.basename(process.cwd())
 const [org, name] = dirName.split('-')
 const configText = fs.readFileSync('config.md', 'utf8')
-const { attributes } = fm<{
+const { attributes, body } = fm<{
   description: string
   homepage: string
   baseURL: string
@@ -54,4 +55,16 @@ const [{ text, filePath }] = build({
 fs.writeFileSync(
   filePath,
   text.replace('export default api', "export * from './@types'\nexport default api")
+)
+
+fs.writeFileSync(
+  'README.md',
+  `${body}
+
+## API Documents
+
+baseURL: ${attributes.baseURL}
+
+${createApiDocs('api')}
+`
 )
