@@ -4,10 +4,12 @@ import fm from 'front-matter'
 import build from 'aspida/dist/buildTemplate'
 import { createApiDocs } from './createApiDocs'
 
-const dirName = path.basename(process.cwd())
-const [org, name] = dirName.split('-')
+const name = path.basename(process.cwd())
+const org = path.basename(path.join(process.cwd(), '../'))
+const packageName = `@api-types/${org}-${name}`
 const configText = fs.readFileSync('config.md', 'utf8')
 const { attributes, body } = fm<{
+  title: string
   description: string
   homepage: string
   baseURL: string
@@ -15,9 +17,9 @@ const { attributes, body } = fm<{
 }>(configText)
 
 const packageJson = {
-  name: `@api-types/${dirName}`,
+  name: packageName,
   version: '0.0.0',
-  description: attributes.description,
+  description: `${attributes.title} - ${attributes.description}`,
   license: 'MIT',
   main: 'dist/$api.js',
   types: 'dist/$api.d.ts',
@@ -34,7 +36,7 @@ const packageJson = {
 }
 
 const tsconfig = `{
-  "extends": "../../tsconfig.json",
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist"
   }
@@ -43,6 +45,7 @@ const tsconfig = `{
 
 fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2))
 fs.writeFileSync('tsconfig.json', tsconfig)
+fs.copyFileSync('../../../LICENSE', 'LICENSE')
 
 const [{ text, filePath }] = build({
   input: 'api',
@@ -59,12 +62,16 @@ fs.writeFileSync(
 
 fs.writeFileSync(
   'README.md',
-  `${body}
+  `# ${packageName} ${attributes.title}
+
+> [${attributes.title}](${attributes.homepage}) - ${attributes.description}
+
+${body}
 
 ## API Documents
 
 baseURL: ${attributes.baseURL}
 
-${createApiDocs('api')}
+${createApiDocs('api', attributes.trailingSlash)}
 `
 )

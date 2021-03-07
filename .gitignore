@@ -1,6 +1,6 @@
 node_modules
 dist
 $*.ts
-packages/*/package.json
-packages/*/tsconfig.json
-packages/*/LICENSE
+apis/**/package.json
+apis/**/tsconfig.json
+apis/**/LICENSE
