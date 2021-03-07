@@ -12,6 +12,7 @@ const { attributes, body } = fm<{
   title: string
   description: string
   homepage: string
+  image: string
   baseURL: string
   trailingSlash: boolean
 }>(configText)
