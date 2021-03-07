@@ -51,19 +51,18 @@ import aspida from '@aspida/axios'
 ```
 
 ## API Documents
-<br />
 
 baseURL: https://www.jma.go.jp/bosai/himawari/data
 <br />
 
+<details>
+<summary><b>/satimg/targetTimes_fd.json</b></summary>
 
-/satimg/targetTimes_fd.json
-GET
 ```ts
 undefined
 ```
 
-
+</details>
 
 ## License
 

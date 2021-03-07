@@ -8,16 +8,20 @@ export const createApiDocs = (input: string, trailingSlash: boolean) => {
       if (c.isDir) {
         walkDir(c.tree)
       } else {
-        docs = `${docs}
-${tree.path.replace('api', '')}/${c.name.replace(/(^index)?\.ts$/, '')}${trailingSlash ? '/' : ''}
+        const endpoint = `${tree.path.replace('api', '')}/${c.name.replace(/(^index)?\.ts$/, '')}${
+          trailingSlash ? '/' : ''
+        }`
+
+        docs = `${docs}<details>
+<summary><b>${endpoint}</b></summary>
 ${c.methods.map(
-  m => `${m.name.toUpperCase()}
+  m => `
 \`\`\`ts
 ${m.props.query?.value}
 \`\`\`
 `
 )}
-`
+</details>`
       }
     })
   }

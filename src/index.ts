@@ -90,7 +90,7 @@ fs.writeFileSync(
 
 ${body}
 
-## Getting Started (axios ver.)
+## Getting Started
 
 - Using [npm](https://www.npmjs.com/):
 
@@ -117,7 +117,6 @@ import aspida from '@aspida/axios'
 \`\`\`
 
 ## API Documents
-<br />
 
 baseURL: ${attributes.baseURL}
 <br />
