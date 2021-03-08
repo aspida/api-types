@@ -6,23 +6,19 @@
 <br />
 
 > [気象庁防災気象情報API](https://www.jma.go.jp/bosai/map.html#5/36.138/137.285/&elem=ir&contents=himawari) - 気象庁ホームページから防災気象情報を取得するAPI
-<div align="center">
-  <a href="https://www.npmjs.com/package/@api-types/jma-himawari">
-    <img src="https://img.shields.io/npm/v/@api-types/jma-himawari" alt="npm version" />
-  </a>
-  <a href="https://www.npmjs.com/package/@api-types/jma-himawari">
-    <img src="https://img.shields.io/npm/dm/@api-types/jma-himawari" alt="npm download" />
-  </a>
-  <a href="https://github.com/aspida/api-types/actions?query=workflow%3A%22Node.js+CI%22">
-    <img src="https://github.com/aspida/api-types/workflows/Node.js%20CI/badge.svg?branch=master" alt="Node.js CI" />
-  </a>
-</div>
-<br />
+
+<a href="https://www.npmjs.com/package/@api-types/jma-himawari">
+  <img src="https://img.shields.io/npm/v/@api-types/jma-himawari" alt="npm version" />
+</a>
+<a href="https://www.npmjs.com/package/@api-types/jma-himawari">
+  <img src="https://img.shields.io/npm/dm/@api-types/jma-himawari" alt="npm download" />
+</a>
 <br />
 <br />
 
 参考サイト：https://qiita.com/e_toyoda/items/7a293313a725c4d306c0
 
+<br />
 
 ## Getting Started
 
@@ -49,20 +45,22 @@ import aspida from '@aspida/axios'
   console.log(resBody)
 })()
 ```
+<br />
 
-## API Documents
+## API Endpoints
 
 baseURL: https://www.jma.go.jp/bosai/himawari/data
 <br />
 
 <details>
 <summary><b>/satimg/targetTimes_fd.json</b></summary>
+<br />
 
 ```ts
 /**
  * 撮影時刻API
  */
-export type Methods = {
+type Methods = {
   /**
    * 撮影時刻一覧を取得
    */
@@ -72,6 +70,25 @@ export type Methods = {
 }
 ```
 </details>
+<br />
+
+## API Types
+
+<details>
+<summary><b>TargetTime</b></summary>
+<br />
+
+```ts
+/**
+ * 撮影時刻
+ */
+type TargetTime = {
+  basetime: string
+  validtime: string
+}
+```
+</details>
+<br />
 
 ## License
 

@@ -2,7 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import fm from 'front-matter'
 import build from 'aspida/dist/buildTemplate'
-import { createApiDocs } from './createApiDocs'
+import { createApiEndpoints } from './createApiEndpoints'
+import { createApiTypes } from './createApiTypes'
 import { Attributes, createReadme } from './createReadme'
 
 const name = path.basename(process.cwd())
@@ -56,5 +57,12 @@ fs.writeFileSync(
 
 fs.writeFileSync(
   'README.md',
-  createReadme(packageName, org, attributes, body, createApiDocs('api', attributes.trailingSlash))
+  createReadme(
+    packageName,
+    org,
+    attributes,
+    body,
+    createApiEndpoints('api', attributes.trailingSlash),
+    createApiTypes('api')
+  )
 )

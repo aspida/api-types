@@ -12,7 +12,8 @@ export const createReadme = (
   org: string,
   attributes: Attributes,
   body: string,
-  apiDocs: string
+  apiEndpoints: string,
+  apiTypes: string
 ) => {
   return `# ${packageName} ${attributes.title}
 <br />
@@ -22,22 +23,18 @@ export const createReadme = (
 <br />
 
 > [${attributes.title}](${attributes.homepage}) - ${attributes.description}
-<div align="center">
-  <a href="https://www.npmjs.com/package/${packageName}">
-    <img src="https://img.shields.io/npm/v/${packageName}" alt="npm version" />
-  </a>
-  <a href="https://www.npmjs.com/package/${packageName}">
-    <img src="https://img.shields.io/npm/dm/${packageName}" alt="npm download" />
-  </a>
-  <a href="https://github.com/aspida/api-types/actions?query=workflow%3A%22Node.js+CI%22">
-    <img src="https://github.com/aspida/api-types/workflows/Node.js%20CI/badge.svg?branch=master" alt="Node.js CI" />
-  </a>
-</div>
-<br />
+
+<a href="https://www.npmjs.com/package/${packageName}">
+  <img src="https://img.shields.io/npm/v/${packageName}" alt="npm version" />
+</a>
+<a href="https://www.npmjs.com/package/${packageName}">
+  <img src="https://img.shields.io/npm/dm/${packageName}" alt="npm download" />
+</a>
 <br />
 <br />
 
 ${body}
+<br />
 
 ## Getting Started
 
@@ -64,12 +61,18 @@ import aspida from '@aspida/axios'
   console.log(resBody)
 })()
 \`\`\`
+<br />
 
-## API Documents
+## API Endpoints
 
 baseURL: ${attributes.baseURL}
 <br />
-${apiDocs}
+${apiEndpoints}
+<br />
+
+## API Types
+${apiTypes}
+<br />
 
 ## License
 

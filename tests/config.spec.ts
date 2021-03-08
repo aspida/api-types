@@ -1,7 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import fm from 'front-matter'
-import { createApiDocs } from '../src/createApiDocs'
+import { createApiEndpoints } from '../src/createApiEndpoints'
+import { createApiTypes } from '../src/createApiTypes'
 import { Attributes, createReadme } from '../src/createReadme'
 
 test('create README', () => {
@@ -16,7 +17,11 @@ test('create README', () => {
           org,
           attributes,
           body,
-          createApiDocs(path.join(__dirname, '../apis', org, name, 'api'), attributes.trailingSlash)
+          createApiEndpoints(
+            path.join(__dirname, '../apis', org, name, 'api'),
+            attributes.trailingSlash
+          ),
+          createApiTypes(path.join(__dirname, '../apis', org, name, 'api'))
         )
       )
     })
