@@ -8,7 +8,7 @@ export const createApiDocs = (input: string, trailingSlash: boolean) => {
       if (c.isDir) {
         walkDir(c.tree)
       } else {
-        const endpoint = `${tree.path.replace('api', '')}/${c.name.replace(/(^index)?\.ts$/, '')}${
+        const endpoint = `${tree.path.replace(input, '')}/${c.name.replace(/(^index)?\.ts$/, '')}${
           trailingSlash ? '/' : ''
         }`
 
