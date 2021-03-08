@@ -12,15 +12,13 @@ export const createApiDocs = (input: string, trailingSlash: boolean) => {
           trailingSlash ? '/' : ''
         }`
 
-        docs = `${docs}<details>
+        docs = `${docs}
+<details>
 <summary><b>${endpoint}</b></summary>
-${c.methods.map(
-  m => `
+
 \`\`\`ts
-${m.props.query?.value}
+${c.$textForApiTypes.trim()}
 \`\`\`
-`
-)}
 </details>`
       }
     })

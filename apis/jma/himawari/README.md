@@ -59,9 +59,18 @@ baseURL: https://www.jma.go.jp/bosai/himawari/data
 <summary><b>/satimg/targetTimes_fd.json</b></summary>
 
 ```ts
-undefined
+/**
+ * 撮影時刻API
+ */
+export type Methods = {
+  /**
+   * 撮影時刻一覧を取得
+   */
+  get: {
+    resBody: TargetTime[]
+  }
+}
 ```
-
 </details>
 
 ## License

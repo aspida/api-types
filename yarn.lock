@@ -929,10 +929,10 @@ asn1@~0.2.3:
   dependencies:
     safer-buffer "~2.1.0"
 
-aspida@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/aspida/-/aspida-1.6.2.tgz#b1cbde63f3ee2bd77de176ad374a9b43a41de7db"
-  integrity sha512-GxYckrLkmoVCdTbVXzgdB8cZDE7UQ/vfOwqTiG6zVoYDQjyCSAmC+z39iu9zSQ1SxRvtLJ1Cx5a6stopkK2THQ==
+aspida@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/aspida/-/aspida-1.6.3.tgz#57991ba98aa423c5722bbc237ffa1f3c09668daf"
+  integrity sha512-9qAGVAEXKjwGNGafkg1FqWRd/euTZ5+HKC2z74YSp/b9EIBb4v7Vd2gwuUDIRmjJ1uZYtYYs+FCkYXEGK5RvIA==
   dependencies:
     "@types/minimist" "^1.2.1"
     chokidar "^3.5.1"

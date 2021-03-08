@@ -69,7 +69,6 @@ import aspida from '@aspida/axios'
 
 baseURL: ${attributes.baseURL}
 <br />
-
 ${apiDocs}
 
 ## License
