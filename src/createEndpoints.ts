@@ -1,6 +1,6 @@
 import { DirentTree, getDirentTree } from 'aspida/dist/getDirentTree'
 
-export const createApiEndpoints = (input: string, trailingSlash: boolean) => {
+export const createEndpoints = (input: string, trailingSlash: boolean) => {
   let docs = ''
 
   const walkDir = (tree: DirentTree) => {

@@ -2,9 +2,10 @@ import fs from 'fs'
 import path from 'path'
 import fm from 'front-matter'
 import build from 'aspida/dist/buildTemplate'
-import { createApiEndpoints } from './createApiEndpoints'
-import { createApiTypes } from './createApiTypes'
+import { createEndpoints } from './createEndpoints'
+import { createTypes } from './createTypes'
 import { Attributes, createReadme } from './createReadme'
+import { createConstants } from './createConstants'
 
 const name = path.basename(process.cwd())
 const org = path.basename(path.join(process.cwd(), '../'))
@@ -50,10 +51,23 @@ const [{ text, filePath }] = build({
   outputMode: 'all'
 })
 
-fs.writeFileSync(
-  filePath,
-  text.replace('export default api', "export * from './@types'\nexport default api")
-)
+let aspidaText = text
+
+if (fs.existsSync('@types/index.ts')) {
+  aspidaText = aspidaText.replace(
+    'export default api',
+    "export * from './@types'\nexport default api"
+  )
+}
+
+if (fs.existsSync('@constants/index.ts')) {
+  aspidaText = aspidaText.replace(
+    'export default api',
+    "export * from './@constants'\nexport default api"
+  )
+}
+
+fs.writeFileSync(filePath, aspidaText)
 
 fs.writeFileSync(
   'README.md',
@@ -62,7 +76,8 @@ fs.writeFileSync(
     org,
     attributes,
     body,
-    createApiEndpoints('api', attributes.trailingSlash),
-    createApiTypes('api')
+    createEndpoints('api', attributes.trailingSlash),
+    createTypes('api'),
+    createConstants('api')
   )
 )

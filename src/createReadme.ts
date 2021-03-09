@@ -12,8 +12,9 @@ export const createReadme = (
   org: string,
   attributes: Attributes,
   body: string,
-  apiEndpoints: string,
-  apiTypes: string
+  endpoints: string,
+  types: string,
+  constants: string
 ) => {
   return `# ${packageName} ${attributes.title}
 <br />
@@ -59,21 +60,21 @@ import aspida from '@aspida/axios'
   const client = api(aspida())
   const resBody = await client.foo.baz.$get()
   console.log(resBody)
+
+  const img = new Image()
+  img.src = client.foo.baz_jpg.$path()
+  document.body.appendChild(img)
 })()
 \`\`\`
 <br />
 
-## API Endpoints
+## Endpoints
 
 baseURL: ${attributes.baseURL}
 <br />
-${apiEndpoints}
+${endpoints}
 <br />
-
-## API Types
-${apiTypes}
-<br />
-
+${types}${constants}
 ## License
 
 ${packageName} is licensed under a [MIT License](https://github.com/aspida/api-types/blob/master/LICENSE).

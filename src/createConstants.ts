@@ -1,26 +1,13 @@
 import fs from 'fs'
 import path from 'path'
+import { listFiles } from './listFiles'
 
-const listFiles = (targetDir: string) => {
-  const list: string[] = []
+export const createConstants = (input: string) => {
+  if (!fs.existsSync(path.join(input, '@constants/index.ts'))) return ''
 
-  fs.readdirSync(targetDir).forEach(file => {
-    const target = path.posix.join(targetDir, file)
+  let constants = ''
 
-    if (fs.statSync(target).isFile()) {
-      list.push(target)
-    } else {
-      list.push(...listFiles(target))
-    }
-  })
-
-  return list
-}
-
-export const createApiTypes = (input: string) => {
-  let docs = ''
-
-  const texts = listFiles(path.join(input, '@types'))
+  const texts = listFiles(path.join(input, '@constants'))
     .map(file => fs.readFileSync(file, 'utf8'))
     .join('')
     .split(/(?:^|\n)export /g)
@@ -47,22 +34,28 @@ export const createApiTypes = (input: string) => {
 
       return {
         comment,
-        type: text.slice(0, cursor - 2),
-        name: text.match(/^(?:interface|type) (.+?) /)?.[1] ?? ''
+        constant: `${text.slice(0, cursor - 2)}${
+          text.slice(cursor - 1).startsWith('as const') ? ' as const' : ''
+        }`,
+        name: text.match(/^const (.+?) /)?.[1] ?? ''
       }
     })
     .sort((a, b) => (a.name < b.name ? -1 : 1))
-    .forEach(({ comment, type, name }) => {
-      docs = `${docs}
+    .forEach(({ comment, constant, name }) => {
+      constants = `${constants}
 <details>
 <summary><b>${name}</b></summary>
 <br />
 
 \`\`\`ts
-${comment}${type}
+${comment}${constant}
 \`\`\`
 </details>`
     })
 
-  return docs
+  return `
+## Constants
+${constants}
+<br />
+`
 }

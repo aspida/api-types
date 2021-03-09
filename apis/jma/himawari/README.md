@@ -43,15 +43,43 @@ import aspida from '@aspida/axios'
   const client = api(aspida())
   const resBody = await client.foo.baz.$get()
   console.log(resBody)
+
+  const img = new Image()
+  img.src = client.foo.baz_jpg.$path()
+  document.body.appendChild(img)
 })()
 ```
 <br />
 
-## API Endpoints
+## Endpoints
 
 baseURL: https://www.jma.go.jp/bosai/himawari/data
 <br />
 
+<details>
+<summary><b>/satimg/_basetime/fd/_validtime/_band_prod/_z@number/_x@number/_y@number.jpg</b></summary>
+<br />
+
+```ts
+/**
+ * フルディスク画像API
+ * _basetime: 撮影時間 TargetTime['basetime']
+ * _validtime: 撮影時間 TargetTime['validtime']
+ * _band_prod: 画像種別 BAND_PROD
+ * _z: ズームレベル 3-5
+ * _x: タイルのX座標
+ * _y: タイルのY座標
+ */
+type Methods = {
+  /**
+   * フルディスク画像をJPGで取得
+   */
+  get: {
+    resBody: ArrayBuffer
+  }
+}
+```
+</details>
 <details>
 <summary><b>/satimg/targetTimes_fd.json</b></summary>
 <br />
@@ -72,7 +100,7 @@ type Methods = {
 </details>
 <br />
 
-## API Types
+## Types
 
 <details>
 <summary><b>TargetTime</b></summary>
@@ -86,6 +114,30 @@ type TargetTime = {
   basetime: string
   validtime: string
 }
+```
+</details>
+<br />
+
+## Constants
+
+<details>
+<summary><b>BAND_PROD</b></summary>
+<br />
+
+```ts
+/** 画像種別 */
+const BAND_PROD = {
+  /** 可視画像 */
+  VISIBLE: 'B13/TBB',
+  /** 赤外画像 */
+  INFRARED: 'B03/ALBD',
+  /** 水蒸気画像 */
+  WATER_VAPOR: 'B08/TBB',
+  /** トゥルーカラー再現画像 */
+  TRUE_COLOR: 'REP/ETC',
+  /** 雲頂強調画像 */
+  CLOUD_TOP: 'SND/ETC'
+} as const
 ```
 </details>
 <br />
