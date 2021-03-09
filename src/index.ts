@@ -1,11 +1,11 @@
 import fs from 'fs'
 import path from 'path'
 import fm from 'front-matter'
-import build from 'aspida/dist/buildTemplate'
 import { createEndpoints } from './createEndpoints'
 import { createTypes } from './createTypes'
 import { Attributes, createReadme } from './createReadme'
 import { createConstants } from './createConstants'
+import { buildAspida } from './buildAspida'
 
 const name = path.basename(process.cwd())
 const org = path.basename(path.join(process.cwd(), '../'))
@@ -43,32 +43,9 @@ fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2))
 fs.writeFileSync('tsconfig.json', tsconfig)
 fs.copyFileSync('../../../LICENSE', 'LICENSE')
 
-const [{ text, filePath }] = build({
-  input: 'api',
-  baseURL: attributes.baseURL,
-  trailingSlash: attributes.trailingSlash,
-  outputEachDir: false,
-  outputMode: 'all'
-})
+const { text, filePath } = buildAspida('api', attributes)
 
-let aspidaText = text
-
-if (fs.existsSync('@types/index.ts')) {
-  aspidaText = aspidaText.replace(
-    'export default api',
-    "export * from './@types'\nexport default api"
-  )
-}
-
-if (fs.existsSync('@constants/index.ts')) {
-  aspidaText = aspidaText.replace(
-    'export default api',
-    "export * from './@constants'\nexport default api"
-  )
-}
-
-fs.writeFileSync(filePath, aspidaText)
-
+fs.writeFileSync(filePath, text)
 fs.writeFileSync(
   'README.md',
   createReadme(

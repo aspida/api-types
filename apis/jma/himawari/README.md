@@ -63,6 +63,7 @@ baseURL: https://www.jma.go.jp/bosai/himawari/data
 ```ts
 /**
  * フルディスク画像API
+ *
  * _basetime: 撮影時間 TargetTime['basetime']
  * _validtime: 撮影時間 TargetTime['validtime']
  * _band_prod: 画像種別 BAND_PROD
@@ -71,9 +72,29 @@ baseURL: https://www.jma.go.jp/bosai/himawari/data
  * _y: タイルのY座標
  */
 type Methods = {
-  /**
-   * フルディスク画像をJPGで取得
-   */
+  /** フルディスク画像をJPGで取得 */
+  get: {
+    resBody: ArrayBuffer
+  }
+}
+```
+</details>
+<details>
+<summary><b>/satimg/_basetime/jp/_validtime/_band_prod/6/_x@number/_y@number.jpg</b></summary>
+<br />
+
+```ts
+/**
+ * 日本付近画像API
+ *
+ * _basetime: 撮影時間 TargetTime['basetime']
+ * _validtime: 撮影時間 TargetTime['validtime']
+ * _band_prod: 画像種別 BAND_PROD
+ * _x: タイルのX座標
+ * _y: タイルのY座標
+ */
+type Methods = {
+  /** 日本付近画像をJPGで取得 */
   get: {
     resBody: ArrayBuffer
   }
@@ -85,13 +106,23 @@ type Methods = {
 <br />
 
 ```ts
-/**
- * 撮影時刻API
- */
+/** 撮影時刻API */
 type Methods = {
-  /**
-   * 撮影時刻一覧を取得
-   */
+  /** 撮影時刻一覧を取得 */
+  get: {
+    resBody: TargetTime[]
+  }
+}
+```
+</details>
+<details>
+<summary><b>/satimg/targetTimes_jp.json</b></summary>
+<br />
+
+```ts
+/** 日本付近の撮影時刻API */
+type Methods = {
+  /** 日本付近の撮影時刻一覧を取得 */
   get: {
     resBody: TargetTime[]
   }
@@ -107,9 +138,7 @@ type Methods = {
 <br />
 
 ```ts
-/**
- * 撮影時刻
- */
+/** 撮影時刻 */
 type TargetTime = {
   basetime: string
   validtime: string
