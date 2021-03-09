@@ -8,3 +8,17 @@ trailingSlash: false
 ---
 
 参考サイト：https://qiita.com/e_toyoda/items/7a293313a725c4d306c0
+
+`index.ts`
+```ts
+import { apiClient } from "./utils/apiClient"
+
+;(async () => {
+  const resBody = await apiClient.foo.baz.$get()
+  console.log(resBody)
+
+  const img = new Image()
+  img.src = apiClient.foo.baz_jpg.$path()
+  document.body.appendChild(img)
+})()
+```
