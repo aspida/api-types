@@ -1,5 +1,5 @@
 {
-  "name": "@api-types/jma-himawari",
+  "name": "@api-types/jma-bosai",
   "version": "0.0.0",
   "description": "気象庁防災気象情報API - 気象庁ホームページから防災気象情報を取得するAPI",
   "license": "MIT",
@@ -17,11 +17,11 @@
     "dist"
   ],
   "keywords": [
+    "jma",
+    "bosai",
     "typescript",
     "api-types",
-    "aspida",
-    "jma",
-    "himawari"
+    "aspida"
   ],
   "scripts": {
     "dev": "node ../../../node_modules/.bin/ts-node ../../../src/index.ts",

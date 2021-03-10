@@ -10,7 +10,7 @@ export const createPackageJson = (
   org: string,
   name: string
 ) => {
-  const prevJsonPath = path.join(input, 'package.json')
+  const prevJsonPath = path.resolve(input, 'package.json')
   return JSON.stringify(
     {
       name: packageName,
@@ -30,7 +30,7 @@ export const createPackageJson = (
         url: 'https://github.com/aspida/api-types/issues'
       },
       files: ['dist'],
-      keywords: ['typescript', 'api-types', 'aspida', org, name],
+      keywords: [org, name, 'typescript', 'api-types', 'aspida'],
       scripts: {
         dev: 'node ../../../node_modules/.bin/ts-node ../../../src/index.ts',
         build: 'node ../../../node_modules/.bin/tsc'
