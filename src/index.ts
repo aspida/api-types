@@ -21,7 +21,7 @@ const tsconfig = `{
 }
 `
 
-fs.writeFileSync('package.json', createPackageJson(attributes, packageName, org, name))
+fs.writeFileSync('package.json', createPackageJson('./', attributes, packageName, org, name))
 fs.writeFileSync('tsconfig.json', tsconfig)
 fs.copyFileSync('../../../LICENSE', 'LICENSE')
 
