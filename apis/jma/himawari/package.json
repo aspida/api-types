@@ -1,0 +1,30 @@
+{
+  "name": "@api-types/jma-himawari",
+  "version": "0.0.0",
+  "description": "気象庁防災気象情報API - 気象庁ホームページから防災気象情報を取得するAPI",
+  "license": "MIT",
+  "main": "dist/$api.js",
+  "types": "dist/$api.d.ts",
+  "homepage": "https://www.jma.go.jp/bosai/map.html#5/36.138/137.285/&elem=ir&contents=himawari",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aspida/api-types.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aspida/api-types/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "typescript",
+    "api-types",
+    "aspida",
+    "jma",
+    "himawari"
+  ],
+  "scripts": {
+    "dev": "node ../../../node_modules/.bin/ts-node ../../../src/index.ts",
+    "build": "node ../../../node_modules/.bin/tsc"
+  }
+}

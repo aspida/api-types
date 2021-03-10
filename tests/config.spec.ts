@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import fm from 'front-matter'
+import { createPackageJson } from '../src/createPackageJson'
 import { createEndpoints } from '../src/createEndpoints'
 import { createTypes } from '../src/createTypes'
 import { Attributes, createReadme } from '../src/createReadme'
@@ -17,11 +18,17 @@ test('create README and $api.ts', () => {
       const { attributes, body } = fm<Attributes>(
         fs.readFileSync(path.join(nameDir, 'config.md'), 'utf8')
       )
+      const packageName = `@api-types/${org}-${name}`
+
+      expect(createPackageJson(nameDir, attributes, packageName, org, name)).toBe(
+        fs.readFileSync(path.join(nameDir, 'package.json'), 'utf8')
+      )
+
       const apiDir = path.join(nameDir, 'api')
 
       expect(
         createReadme(
-          `@api-types/${org}-${name}`,
+          packageName,
           org,
           attributes,
           body,

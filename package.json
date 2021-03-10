@@ -1,7 +1,8 @@
 {
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "cd apis/jma/himawari && ts-node ../../../src/index.ts && tsc",
+    "gen": "ts-node src/generate.ts",
     "lint": "eslint --ext .ts --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
     "typecheck": "tsc --noEmit",

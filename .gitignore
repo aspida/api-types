@@ -1,5 +1,4 @@
 node_modules
 dist
-apis/**/package.json
 apis/**/tsconfig.json
 apis/**/LICENSE
