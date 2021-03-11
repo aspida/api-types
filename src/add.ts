@@ -5,12 +5,12 @@ import { createPackageJson } from './createPackageJson'
 import { Attributes } from './createReadme'
 import { execSync } from 'child_process'
 
-function generate() {
+function add() {
   const [, , org, name] = process.argv
 
   if (!/^[a-z0-9]{3,}$/.test(org) || !/^[a-z0-9]{5,}$/.test(name)) {
     console.log(
-      `Enter "$ npm run gen <Organization name (>= 3 alphanumeric chars)> <API name (>= 5 alphanumeric chars)>"`
+      `Enter "$ npm run add <Organization name (>= 3 alphanumeric chars)> <API name (>= 5 alphanumeric chars)>"`
     )
 
     return
@@ -74,4 +74,4 @@ import { apiClient } from "./utils/apiClient"
 $ cd apis/${org}/${name}`)
 }
 
-generate()
+add()

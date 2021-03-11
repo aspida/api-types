@@ -2,7 +2,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "gen": "ts-node src/generate.ts",
+    "add": "ts-node src/add.ts",
     "lint": "eslint --ext .ts --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
     "typecheck": "tsc --noEmit",

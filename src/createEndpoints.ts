@@ -8,9 +8,9 @@ export const createEndpoints = (input: string, trailingSlash: boolean) => {
       if (c.isDir) {
         walkDir(c.tree)
       } else {
-        const endpoint = `${tree.path.replace(input, '')}/${c.name.replace(/(^index)?\.ts$/, '')}${
-          trailingSlash ? '/' : ''
-        }`
+        const endpoint = `${tree.path.replace(input, '')}${
+          c.name === 'index.ts' ? '' : `/${c.name.replace(/(^index)?\.ts$/, '')}`
+        }${trailingSlash ? '/' : ''}`
 
         docs = `${docs}
 <details>

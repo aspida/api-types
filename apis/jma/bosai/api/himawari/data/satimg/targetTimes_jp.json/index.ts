@@ -1,4 +1,4 @@
-import { TargetTime } from '../../../@types'
+import { TargetTime } from '../../../../@types'
 
 /** 日本付近の撮影時刻API */
 export type Methods = {

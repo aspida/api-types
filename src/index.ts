@@ -21,14 +21,15 @@ const tsconfig = `{
 }
 `
 
-fs.writeFileSync('package.json', createPackageJson('./', attributes, packageName, org, name))
-fs.writeFileSync('tsconfig.json', tsconfig)
-fs.copyFileSync('../../../LICENSE', 'LICENSE')
+fs.promises.writeFile('package.json', createPackageJson('./', attributes, packageName, org, name))
+fs.promises.writeFile('tsconfig.json', tsconfig)
+fs.promises.copyFile('../../../LICENSE', 'LICENSE')
 
-const { text, filePath } = buildAspida('api', attributes)
+buildAspida('api', attributes).forEach(({ text, filePath }) =>
+  fs.promises.writeFile(filePath, text)
+)
 
-fs.writeFileSync(filePath, text)
-fs.writeFileSync(
+fs.promises.writeFile(
   'README.md',
   createReadme(
     packageName,

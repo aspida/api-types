@@ -3,7 +3,7 @@
 ## Add new api
 
 ```sh
-$ npm run gen <Organization name (>= 3 alphanumeric chars)> <API name (>= 5 alphanumeric chars)>
+$ npm run add <Organization name (>= 3 alphanumeric chars)> <API name (>= 5 alphanumeric chars)>
 $ cd apis/<Organization name>/<API name>
 ```
 
