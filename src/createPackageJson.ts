@@ -30,11 +30,7 @@ export const createPackageJson = (
         url: 'https://github.com/aspida/api-types/issues'
       },
       files: ['dist'],
-      keywords: [org, name, 'typescript', 'api-types', 'aspida'],
-      scripts: {
-        dev: 'node ../../../node_modules/.bin/ts-node ../../../src/index.ts',
-        build: 'node ../../../node_modules/.bin/tsc'
-      }
+      keywords: [org, name, 'typescript', 'api-types', 'aspida']
     },
     null,
     2

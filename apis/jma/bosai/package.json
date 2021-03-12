@@ -22,9 +22,5 @@
     "typescript",
     "api-types",
     "aspida"
-  ],
-  "scripts": {
-    "dev": "node ../../../node_modules/.bin/ts-node ../../../src/index.ts",
-    "build": "node ../../../node_modules/.bin/tsc"
-  }
+  ]
 }
