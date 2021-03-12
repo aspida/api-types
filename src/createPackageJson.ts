@@ -30,7 +30,10 @@ export const createPackageJson = (
         url: 'https://github.com/aspida/api-types/issues'
       },
       files: ['dist'],
-      keywords: [org, name, 'typescript', 'api-types', 'aspida']
+      keywords: [org, name, 'typescript', 'api-types', 'aspida'],
+      publishConfig: {
+        access: 'public'
+      }
     },
     null,
     2

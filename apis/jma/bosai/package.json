@@ -1,6 +1,6 @@
 {
   "name": "@api-types/jma-bosai",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "気象庁防災気象情報API - 気象庁ホームページから防災気象情報を取得するAPI",
   "license": "MIT",
   "main": "dist/$api.js",
@@ -22,5 +22,8 @@
     "typescript",
     "api-types",
     "aspida"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
