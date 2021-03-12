@@ -3,7 +3,7 @@
 
 <br />
 <div align="center">
-  <img src="https://aspida.github.io/api-types/assets/jma/himawari.jpg" alt="@api-types/jma-bosai 気象庁防災気象情報API" />
+  <img src="https://aspida.github.io/api-types/assets/jma/bosai.jpg" alt="@api-types/jma-bosai 気象庁防災気象情報API" />
 </div>
 <br />
 
