@@ -1,5 +1,11 @@
 # api-types
 
+<br />
+<div align="center">
+  <img src="https://aspida.github.io/api-types/images/logo.png" alt="api-types" />
+</div>
+<br />
+
 ## Add new API
 
 ```sh
