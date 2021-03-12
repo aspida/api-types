@@ -83,8 +83,8 @@ baseURL: https://www.jma.go.jp/bosai
 /**
  * フルディスク画像API
  *
- * _basetime: 撮影時間 TargetTime['basetime']
- * _validtime: 撮影時間 TargetTime['validtime']
+ * _basetime: 基準時刻 TargetTime['basetime']
+ * _validtime: 撮影時刻 TargetTime['validtime']
  * _band_prod: 画像種別 BAND_PROD
  * _z: ズームレベル 3-5
  * _x: タイルのX座標
@@ -106,8 +106,8 @@ type Methods = {
 /**
  * 日本付近画像API
  *
- * _basetime: 撮影時間 TargetTime['basetime']
- * _validtime: 撮影時間 TargetTime['validtime']
+ * _basetime: 基準時刻 TargetTime['basetime']
+ * _validtime: 撮影時刻 TargetTime['validtime']
  * _band_prod: 画像種別 BAND_PROD
  * _x: タイルのX座標
  * _y: タイルのY座標
@@ -142,6 +142,56 @@ type Methods = {
 /** 日本付近の撮影時刻API */
 type Methods = {
   /** 日本付近の撮影時刻一覧を取得 */
+  get: {
+    resBody: TargetTime[]
+  }
+}
+```
+</details>
+<details>
+<summary><b>/jmatile/data/nowc/_basetime/none/_validtime/surf/hrpns/_z@number/_x@number/_y@number.png</b></summary>
+<br />
+
+```ts
+/**
+ * 降水ナウキャスト画像API
+ *
+ * _basetime: 基準時刻 TargetTime['basetime']
+ * _validtime: 実況時間または予報時刻 TargetTime['validtime']
+ * _z: ズームレベル 4-10
+ * _x: タイルのX座標
+ * _y: タイルのY座標
+ */
+type Methods = {
+  /** 降水ナウキャスト画像をJPGで取得 */
+  get: {
+    resBody: ArrayBuffer
+  }
+}
+```
+</details>
+<details>
+<summary><b>/jmatile/data/nowc/targetTimes_N1.json</b></summary>
+<br />
+
+```ts
+/** 降水ナウキャストの実況時刻API */
+type Methods = {
+  /** 降水ナウキャストの実況時刻一覧を取得 */
+  get: {
+    resBody: TargetTime[]
+  }
+}
+```
+</details>
+<details>
+<summary><b>/jmatile/data/nowc/targetTimes_N2.json</b></summary>
+<br />
+
+```ts
+/** 降水ナウキャストの予報時刻API */
+type Methods = {
+  /** 降水ナウキャストの予報時刻一覧を取得 */
   get: {
     resBody: TargetTime[]
   }
