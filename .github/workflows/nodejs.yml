@@ -44,9 +44,9 @@ jobs:
       - run: |
           ORG_NAME=$(echo ${{ github.ref }} | sed -r "s/refs\/tags\/(.+?)-.+@.+/\1/")
           API_NAME=$(echo ${{ github.ref }} | sed -r "s/refs\/tags\/.+?-(.+?)@.+/\1/")
+          npm run update $ORG_NAME $API_NAME
+          npm run build apis/$ORG_NAME/$API_NAME
           cd apis/$ORG_NAME/$API_NAME
-          yarn dev
-          yarn build
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
