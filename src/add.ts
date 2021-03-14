@@ -16,11 +16,12 @@ function add() {
     return
   }
 
+  const imagePath = `${name}.png`
   const config = `---
 title: My cool API
 description: My cool API for TypeScript. 
 homepage: https://example.com
-image: ${name}.jpg
+image: ${imagePath}
 baseURL: https://example.com/api/v1
 trailingSlash: false
 ---
@@ -66,8 +67,8 @@ import { apiClient } from "./utils/apiClient"
   const assetsDir = path.join(__dirname, '../docs/assets', org)
   if (!fs.existsSync(assetsDir)) fs.mkdirSync(assetsDir)
   fs.copyFileSync(
-    path.join(__dirname, '../docs/images/logo.jpg'),
-    path.join(assetsDir, `${name}.jpg`)
+    path.join(__dirname, '../docs/logos/png/logo.png'),
+    path.join(assetsDir, imagePath)
   )
 
   console.log(`Success!

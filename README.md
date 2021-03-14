@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <img src="https://aspida.github.io/api-types/images/logo.png" alt="api-types" />
+  <img src="https://aspida.github.io/api-types/logos/png/logo.png" alt="api-types" />
 </div>
 <br />
 
