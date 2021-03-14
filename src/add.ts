@@ -3,7 +3,7 @@ import path from 'path'
 import fm from 'front-matter'
 import { createPackageJson } from './createPackageJson'
 import { Attributes } from './createReadme'
-import { execSync } from 'child_process'
+import { update } from './update'
 
 function add() {
   const [, , org, name] = process.argv
@@ -62,7 +62,7 @@ import { apiClient } from "./utils/apiClient"
     path.join(apiDir, 'package.json'),
     createPackageJson(apiDir, fm<Attributes>(config).attributes, '', '', '')
   )
-  execSync('npm run dev', { cwd: apiDir })
+  update()
 
   const assetsDir = path.join(__dirname, '../docs/assets', org)
   if (!fs.existsSync(assetsDir)) fs.mkdirSync(assetsDir)

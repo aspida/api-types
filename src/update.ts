@@ -8,12 +8,13 @@ import { Attributes, createReadme } from './createReadme'
 import { createConstants } from './createConstants'
 import { buildAspida } from './buildAspida'
 
-function update() {
+export const update = () => {
   const [, , org, name] = process.argv
   const dirPath = path.join(__dirname, '../apis', org, name)
 
   if (!fs.existsSync(dirPath)) {
-    console.log(`Enter "$ npm run update <Organization name> <API name>"`)
+    console.log(`Could not find ${dirPath}
+Enter "$ npm run update <Organization name> <API name>"`)
 
     return
   }
